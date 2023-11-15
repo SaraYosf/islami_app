@@ -5,7 +5,6 @@ import 'package:islami/sura_details.dart';
 
 import 'themeData.dart';
 
-
 void main() {
   runApp(MaterialApp(
     debugShowCheckedModeBanner: false,
