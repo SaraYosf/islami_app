@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import '../models/sura_models.dart';
 import '../sura_details.dart';
 import '../themeData.dart';
@@ -9,20 +9,13 @@ class QuranTab extends StatelessWidget {
 
   List<String> suraName = [
     "الفاتحه", "البقرة", "آل عمران", "النساء", "المائدة",
-    "الأنعام", "الأعراف", "الأنفال", "التوبة", "يونس",
-    "هود", "يوسف",
+    "الأنعام", "الأعراف", "الأنفال", "التوبة", "يونس", "هود", "يوسف",
     "الرعد", "إبراهيم",
     "الحجر", "النحل", "الإسراء",
-    "الكهف", "مريم",
-    "طه",
-    "الأنبياء",
-    "الحج",
-    "المؤمنون",
-    "النّور",
-    "الفرقان",
-    "الشعراء",
-    "النّمل",
-    "القصص",
+    "الكهف", "مريم", "طه",
+    "الأنبياء", "الحج",
+    "المؤمنون", "النّور", "الفرقان", "الشعراء",
+    "النّمل", "القصص",
     "العنكبوت",
     "الرّوم",
     "لقمان",
@@ -113,7 +106,7 @@ class QuranTab extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
       width: double.infinity,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
@@ -124,7 +117,7 @@ class QuranTab extends StatelessWidget {
             thickness: 3,
           ),
           Text(
-            "sura name",
+            AppLocalizations.of(context)!.suraName,
             style: Theme.of(context).textTheme.bodyMedium,
           ),
           Divider(
