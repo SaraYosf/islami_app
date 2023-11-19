@@ -36,10 +36,19 @@ class _SuraDetailsState extends State<SuraDetails> {
           ),
           body: Center(
             child: Card(
+
+              margin: EdgeInsets.symmetric(horizontal: 20),
+              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20),side: const BorderSide(width: 1,color: Colors.black)),
+             // color: Colors.transparent,
+              elevation: 14,
               child: ListView.builder(
                 itemBuilder: (context, index) {
-                  return Text(
-                    verses[index],style: Theme.of(context).textTheme.bodyMedium,
+                  return Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Text(
+                      textAlign: TextAlign.right,
+                      "${index+1} ${verses[index]}",style: Theme.of(context).textTheme.bodyMedium,
+                    ),
                   );
                 },
                 itemCount: verses.length,
@@ -53,9 +62,10 @@ class _SuraDetailsState extends State<SuraDetails> {
 
   loadFile(int index) async {
     String file = await rootBundle.loadString("assets/files/${index + 1}.txt");
-    List<String> ayatLines = file.split("\n");
-    print(ayatLines);
-    verses = ayatLines;
+    List<String> ayahLines = file.split("\n");
+    print(ayahLines.length);
+    verses = ayahLines;
+
     setState(() {});
   }
 }

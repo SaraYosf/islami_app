@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 import '../models/sura_models.dart';
 import '../sura_details.dart';
 import '../themeData.dart';
 
 class QuranTab extends StatelessWidget {
+
   List<String> suraName = [
     "الفاتحه", "البقرة", "آل عمران", "النساء", "المائدة",
     "الأنعام", "الأعراف", "الأنفال", "التوبة", "يونس",
@@ -131,7 +133,9 @@ class QuranTab extends StatelessWidget {
           ),
           Expanded(
             child: ListView.separated(
+
               separatorBuilder: (context, index) {
+
                 return InkWell(
                     onTap: () {
                       Navigator.pushNamed(context, SuraDetails.routeName,
@@ -141,9 +145,10 @@ class QuranTab extends StatelessWidget {
 
                     child: Center(
                         child: Text(
-                      suraName[index],
+                      "${suraName[index]} ",
                       style: Theme.of(context).textTheme.bodyMedium,
-                    )));
+                    )
+                    ));
               },
               itemCount: suraName.length,
               itemBuilder: (BuildContext context, int index) {
@@ -160,4 +165,5 @@ class QuranTab extends StatelessWidget {
       ),
     );
   }
+
 }
