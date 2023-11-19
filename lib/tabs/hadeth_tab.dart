@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:islami/hadeth_detail.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 import '../models/hadeth_model.dart';
 import '../themeData.dart';
@@ -23,7 +24,9 @@ class _HadethTabState extends State<HadethTab> {
         const Divider(
           color: MyThemeData.primaryColor,
         ),
-        const Text("ahadeth"),
+         Text(
+          AppLocalizations.of(context)!.ahadeth,
+          style: Theme.of(context).textTheme.bodyMedium,),
         const Divider(
           color: MyThemeData.primaryColor,
         ),
@@ -69,9 +72,9 @@ class _HadethTabState extends State<HadethTab> {
         HadethModel hadeth = HadethModel(title, content);
         allAahadeth.add(hadeth);
       }
-   setState(() {
+setState(() {
 
-   });
+});
     });
   }
 }
