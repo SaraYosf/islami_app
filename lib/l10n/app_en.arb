@@ -3,5 +3,11 @@
   "appTitle": "islami",
   "ahadeth": "Ahadeth",
   "quran": "Quran",
-  "sura": "Sura"
+  "sura": "Sura",
+  "language": "Language",
+  "english": "English",
+  "arabic": "Arabic",
+  "theme": "Theme",
+  "light": "Light",
+  "dark": "Dark"
   }

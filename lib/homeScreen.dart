@@ -11,6 +11,8 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 class HomeScreen extends StatefulWidget {
   static const String routeName="home";
 
+  const HomeScreen({super.key});
+
   @override
   State<HomeScreen> createState() => _HomeScreenState();
 }
@@ -37,7 +39,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
               });
             },
-              items:[
+              items:const [
             BottomNavigationBarItem(icon: ImageIcon(AssetImage("assets/images/icon_quran.png")),label: "quran",backgroundColor: MyThemeData.primaryColor,),
             BottomNavigationBarItem(icon: ImageIcon(AssetImage("assets/images/icon_hadeth.png")),label: "hadeth",backgroundColor: MyThemeData.primaryColor),
                 BottomNavigationBarItem(icon: ImageIcon(AssetImage("assets/images/icon_radio.png")),label: "radio",backgroundColor: MyThemeData.primaryColor),
@@ -52,5 +54,5 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
     ]);
   }
-  List<Widget>tabs=[QuranTab(),HadethTab(),RadioTab(),SebhaTab(),SettingsTab()];
+  List<Widget>tabs=[QuranTab(),  HadethTab(), const RadioTab(), const SebhaTab(),  SettingsTab()];
 }
