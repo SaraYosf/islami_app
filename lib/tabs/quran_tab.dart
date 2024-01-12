@@ -5,8 +5,16 @@ import '../models/sura_models.dart';
 import '../sura_details.dart';
 import '../themeData.dart';
 
-class QuranTab extends StatelessWidget {
+class QuranTab extends StatefulWidget {
 
+
+  const QuranTab({super.key});
+
+  @override
+  State<QuranTab> createState() => _QuranTabState();
+}
+
+class _QuranTabState extends State<QuranTab> {
   List<String> suraName = [
     "الفاتحه", "البقرة", "آل عمران", "النساء", "المائدة",
     "الأنعام", "الأعراف", "الأنفال", "التوبة", "يونس", "هود", "يوسف",
@@ -112,16 +120,16 @@ class QuranTab extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Image.asset("assets/images/qur2an_screen_logo.png"),
-          Divider(
-            color: MyThemeData.primaryColor,
+          const Divider(
+            color: MyThemeData.primary,
             thickness: 3,
           ),
           Text(
             AppLocalizations.of(context)!.suraName,
             style: Theme.of(context).textTheme.bodyMedium,
           ),
-          Divider(
-            color: MyThemeData.primaryColor,
+          const Divider(
+            color: MyThemeData.primary,
             thickness: 3,
           ),
           Expanded(
@@ -145,8 +153,8 @@ class QuranTab extends StatelessWidget {
               },
               itemCount: suraName.length,
               itemBuilder: (BuildContext context, int index) {
-                return Divider(
-                  color: MyThemeData.primaryColor,
+                return const Divider(
+                  color: MyThemeData.primary,
                   thickness: 1,
                   endIndent: 40,
                   indent: 40,
@@ -158,5 +166,4 @@ class QuranTab extends StatelessWidget {
       ),
     );
   }
-
 }

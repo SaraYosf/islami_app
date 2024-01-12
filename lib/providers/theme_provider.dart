@@ -1,9 +1,0 @@
-import 'package:flutter/material.dart';
-
-class ThemeProvider extends ChangeNotifier{
-  var theming="";
-  changeTheme(){
-
-  }
-
-}

@@ -4,14 +4,14 @@ import 'package:provider/provider.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import '../providers/lang_provider.dart';
 
-class LanguageBottomSheet extends StatefulWidget {
-  const LanguageBottomSheet({super.key});
+class ThemeBottomSheet extends StatefulWidget {
+  const ThemeBottomSheet({super.key});
 
   @override
-  State<LanguageBottomSheet> createState() => _LanguageBottomSheetState();
+  State<ThemeBottomSheet> createState() => _ThemeBottomSheetState();
 }
 
-class _LanguageBottomSheetState extends State<LanguageBottomSheet> {
+class _ThemeBottomSheetState extends State<ThemeBottomSheet> {
   @override
   Widget build(BuildContext context) {
     var provider = Provider.of<MyProvider>(context);
@@ -31,10 +31,11 @@ class _LanguageBottomSheetState extends State<LanguageBottomSheet> {
               InkWell(
                   onTap: (){
 
-                    provider.changeLanguage("en");
+                    provider.changeTheming(ThemeMode.light);
+                    Navigator.pop(context);
                   },
-                  child: Text(AppLocalizations.of(context)!.english,style: TextStyle(color: provider.lang=="en"?MyThemeData.primary:MyThemeData.blackColor,))),
-              provider.lang=="en"?Icon(Icons.done,color: MyThemeData.primary,):Container()
+                  child: Text(AppLocalizations.of(context)!.light,style: TextStyle(color: provider.theming==ThemeMode.light?Theme.of(context).colorScheme.primary:MyThemeData.blackColor,))),
+              provider.theming==ThemeMode.light?Icon(Icons.done,color: Theme.of(context).colorScheme.primary):Container()
             ],
           ),
           const Divider(color: Colors.brown, indent: 10, endIndent: 10),
@@ -42,10 +43,11 @@ class _LanguageBottomSheetState extends State<LanguageBottomSheet> {
             children: [
               InkWell(
                   onTap: (){
-                    provider.changeLanguage("ar");
+                    provider.changeTheming(ThemeMode.dark);
+                    Navigator.pop(context);
                   },
-                  child: Text(AppLocalizations.of(context)!.arabic,style: TextStyle(color: provider.lang=="ar"?MyThemeData.primary:MyThemeData.blackColor,))),
-              provider.lang=="ar"?Icon(Icons.done,color: MyThemeData.primary,):Container()
+                  child: Text(AppLocalizations.of(context)!.dark,style: TextStyle(color: provider.theming==ThemeMode.dark?MyThemeData.darkPrimary:Theme.of(context).colorScheme.primary,))),
+              provider.theming==ThemeMode.dark?Icon(Icons.done,color: Theme.of(context).colorScheme.primary):Container()
             ],
           ),
 

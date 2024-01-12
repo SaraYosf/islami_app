@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:islami/providers/lang_provider.dart';
+import 'package:provider/provider.dart';
 
 import 'models/sura_models.dart';
 
@@ -18,17 +20,19 @@ class _SuraDetailsState extends State<SuraDetails> {
   @override
   Widget build(BuildContext context) {
     var args = ModalRoute.of(context)?.settings.arguments as SuraModel;
+    var provider=Provider.of<MyProvider>(context);
 
     if (verses.isEmpty) {
       loadFile(args.index);
     }
-    return Stack(
+
+    return  Stack(
       children: [
-        Image.asset(
-          "assets/images/default_bg.png",
-          fit: BoxFit.fill,
-          width: double.infinity,
-        ),
+        provider.theming==ThemeMode.dark?
+        Image.asset("assets/images/dark_bg.png",
+          fit: BoxFit.fill,width: double.infinity,):
+        Image.asset("assets/images/default_bg.png",
+          fit: BoxFit.fill,width: double.infinity,),
         Scaffold(
           appBar: AppBar(
             title: Text(
@@ -49,7 +53,7 @@ class _SuraDetailsState extends State<SuraDetails> {
                     padding: const EdgeInsets.all(8.0),
                     child: Text(
                       textAlign: TextAlign.right,
-                      "${index+1} ${verses[index]}",style: Theme.of(context).textTheme.bodyMedium,
+                      "${index+1} ${verses[index]}",style:TextStyle(color: Colors.black),
                     ),
                   );
                 },

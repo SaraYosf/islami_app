@@ -1,11 +1,16 @@
 import 'package:flutter/material.dart';
 
-class LangProvider extends ChangeNotifier{
-   String lang="en";
+class MyProvider extends ChangeNotifier {
+  String lang = "en";
+  ThemeMode theming = ThemeMode.light;
 
-   changeLanguage(String local){
-     lang=local;
-     notifyListeners();
-   }
+  changeLanguage(String local) {
+    lang = local;
+    notifyListeners();
+  }
 
+  changeTheming(ThemeMode mode) {
+    theming = mode;
+    notifyListeners();
+  }
 }

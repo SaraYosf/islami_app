@@ -8,7 +8,7 @@ import 'hadeth_detail.dart';
 import 'themeData.dart';
 void main(){
   runApp(ChangeNotifierProvider(
-    create: ( context) =>LangProvider(),
+    create: ( context) =>MyProvider(),
     child: const MyApp(
     ),
   ));
@@ -23,7 +23,7 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
-    var provider=Provider.of<LangProvider>(context);
+    var provider=Provider.of<MyProvider>(context);
     return MaterialApp(
      localizationsDelegates: AppLocalizations.localizationsDelegates,
       supportedLocales: AppLocalizations.supportedLocales,// English
@@ -35,6 +35,7 @@ class _MyAppState extends State<MyApp> {
         SuraDetails.routeName: (context) => SuraDetails(),
         HadethDetail.routeName: (context) => HadethDetail(),
       },
+      themeMode: provider.theming,
       theme: MyThemeData.lightTheme,
       darkTheme: MyThemeData.dartTheme,
     );

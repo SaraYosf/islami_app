@@ -22,13 +22,13 @@ class _HadethTabState extends State<HadethTab> {
     return Column(
       children: [
         const Divider(
-          color: MyThemeData.primaryColor,
+          color: MyThemeData.primary,
         ),
          Text(
           AppLocalizations.of(context)!.ahadeth,
           style: Theme.of(context).textTheme.bodyMedium,),
         const Divider(
-          color: MyThemeData.primaryColor,
+          color: MyThemeData.primary,
         ),
         Expanded(
           child: ListView.separated(
@@ -47,8 +47,9 @@ class _HadethTabState extends State<HadethTab> {
                   ),
                 );
               },
+
               separatorBuilder: (context, index) => const Divider(
-                color: MyThemeData.primaryColor,
+                color: MyThemeData.primary,
                 indent: 40,
                 endIndent: 40,
               ),

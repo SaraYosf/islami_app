@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
+// ignore: must_be_immutable
 class SittingItem extends StatelessWidget {
    SittingItem(this.bottomSheet,this.head,this.choice,{super.key});
 Function bottomSheet;
 String head;
 String choice;
+
   @override
   Widget build(BuildContext context) {
     return  Column(
